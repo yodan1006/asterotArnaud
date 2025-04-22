@@ -1,0 +1,4 @@
+{
+	"name": "UIManage.Runtime",
+	"references":[ "GUID:58f7924f1f3411545bbed7885b9bbda9" ]
+}
