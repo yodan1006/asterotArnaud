@@ -36,7 +36,6 @@ public class MovePlayer : MonoBehaviour
         
         transform.rotation = Quaternion.Euler(0, 0, angle + offsetRotation);
     }
-
     public void Move(InputAction.CallbackContext context)
     {
         moveInput = context.ReadValue<Vector2>();

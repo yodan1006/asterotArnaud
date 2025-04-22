@@ -1,0 +1,14 @@
+{
+    "name": "Laser.Runtime",
+    "rootNamespace": "Laser.Runtime",
+    "references": ["Player.Runtime"],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
