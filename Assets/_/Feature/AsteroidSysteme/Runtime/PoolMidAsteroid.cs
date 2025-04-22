@@ -3,15 +3,14 @@ using UnityEngine;
 
 namespace AsteroidSysteme.Runtime
 {
-    public class PoolAsteroid : MonoBehaviour
+    public class PoolMidAsteroid : MonoBehaviour
     {
         #region Publics
-
-        public int m_poolSize;
+        
+        public List<GameObject> m_prefabs;
+        public List<GameObject> m_pool;
         public Transform m_parentTransform;
-        public List<GameObject> m_prefabEnemy;
-        public List<GameObject> pool = new List<GameObject>();
-
+        public int m_poolSize;
         #endregion
 
 
@@ -22,7 +21,6 @@ namespace AsteroidSysteme.Runtime
             GenereatePool();
         }
         
-
         #endregion
 
 
@@ -33,23 +31,22 @@ namespace AsteroidSysteme.Runtime
             go.SetActive(false);
             go.transform.SetParent(m_parentTransform);
         }
-
         public GameObject GetPoolEnemy()
         {
-            int index = Random.Range(0, pool.Count);
-            for (int i = 0; i < pool.Count; i++)
+            int index = Random.Range(0, m_pool.Count);
+            for (int i = 0; i < m_pool.Count; i++)
             {
-                GameObject asteroid = pool[(index + i) % pool.Count];
+                GameObject asteroid = m_pool[(index + i) % m_pool.Count];
                 if (!asteroid.activeInHierarchy) return asteroid;
             }
 
-            int randomIndex = Random.Range(0, m_prefabEnemy.Count);
-            GameObject newEnemy = Instantiate(m_prefabEnemy[randomIndex]);
-            newEnemy.transform.SetParent(m_parentTransform);
+            int randomIndex = Random.Range(0, m_prefabs.Count);
+            GameObject newEnemy = Instantiate(m_prefabs[randomIndex]);
             newEnemy.SetActive(false);
-            pool.Add(newEnemy);
+            m_pool.Add(newEnemy);
             return newEnemy;
         }
+
         #endregion
 
 
@@ -65,21 +62,17 @@ namespace AsteroidSysteme.Runtime
         
         void GenereateAsteroid()
         {
-            int randomIndex = Random.Range(0, m_prefabEnemy.Count);
-            GameObject asteroid = Instantiate(m_prefabEnemy[(randomIndex)]);
+            int randomIndex = Random.Range(0, m_prefabs.Count);
+            GameObject asteroid = Instantiate(m_prefabs[(randomIndex)]);
             asteroid.SetActive(false);
             asteroid.transform.SetParent(m_parentTransform);
-            pool.Add(asteroid);
+            m_pool.Add(asteroid);
         }
-
-        
 
         #endregion
         
         
         #region Privates
-        
-        
         #endregion
     }
 }

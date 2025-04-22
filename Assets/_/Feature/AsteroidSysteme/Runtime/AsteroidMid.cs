@@ -3,15 +3,16 @@ using UnityEngine.Serialization;
 
 namespace AsteroidSysteme.Runtime
 {
-    public class AsteroidMax : MonoBehaviour, IDamage
+    public class AsteroidMid : MonoBehaviour
     {
-        #region Publics
+       #region Publics
 
         public float m_asteroidSpeed = 1f;
-        [FormerlySerializedAs("direction")] public Vector2 m_direction;
-        [FormerlySerializedAs("asteroidPool")] public PoolAsteroid m_asteroidPool;
-        public PoolMidAsteroid m_midAsteroidPool;
-        [FormerlySerializedAs("cam")] public Camera m_cam;
+        public Vector2 m_direction;
+        public PoolAsteroid m_asteroidPool;
+        public PoolMidAsteroid m_smallAsteroidPool;
+        public Camera m_cam;
+        public Rigidbody2D m_rb;
 
         #endregion
 
@@ -24,9 +25,9 @@ namespace AsteroidSysteme.Runtime
             {
                 m_asteroidPool = FindFirstObjectByType<PoolAsteroid>();
             }
-            if (m_midAsteroidPool == null)
+            if (m_smallAsteroidPool == null)
             {
-                m_midAsteroidPool = FindFirstObjectByType<PoolMidAsteroid>();
+                m_smallAsteroidPool = FindFirstObjectByType<PoolMidAsteroid>();
             }
 
             if (m_cam == null)
@@ -40,8 +41,7 @@ namespace AsteroidSysteme.Runtime
         private void Start()
         {
             m_direction =  new Vector2(Random.Range(-5,5), Random.Range(-5,5));
-            _screenWith = m_cam.orthographicSize;
-            _screenWidth = m_cam.orthographicSize * m_cam.aspect;
+            m_rb = GetComponent<Rigidbody2D>();
         }
 
         private void Update()
@@ -88,11 +88,12 @@ namespace AsteroidSysteme.Runtime
                 {
                     for (int i = 0; i < 2; i++)
                     {
-                        GameObject asteroid = m_midAsteroidPool.GetPoolEnemy();
+                        GameObject asteroid = m_smallAsteroidPool.GetPoolEnemy();
                         if (asteroid != null)
                         {
                             asteroid.transform.position = transform.position;
-                            asteroid.SetActive(true);
+                            asteroid.SetActive(true); 
+                            m_rb.AddForce(Random.insideUnitCircle * m_asteroidSpeed, ForceMode2D.Impulse);
                         }
                     }
                 }
@@ -101,10 +102,8 @@ namespace AsteroidSysteme.Runtime
         
         
         #region Privates
-
-        private float _screenWith;
+        
         private bool _OnDestroyed;
-        private float _screenWidth;
 
         #endregion
 

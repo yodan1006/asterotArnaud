@@ -62,7 +62,7 @@ namespace Manager.Runtime
         #endregion
 
 
-            #region Privates
+        #region Privates
 
             private float _chrono;
             private float _screenWidth;
