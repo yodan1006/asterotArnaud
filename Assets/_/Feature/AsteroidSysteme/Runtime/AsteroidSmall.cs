@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace AsteroidSysteme.Runtime
 {
-    public class AsteroidSmall : MonoBehaviour
+    public class AsteroidSmall : MonoBehaviour , IDamage
     {
         #region Publics
 
