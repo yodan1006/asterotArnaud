@@ -1,7 +1,10 @@
 {
     "name": "Laser.Runtime",
     "rootNamespace": "Laser.Runtime",
-    "references": ["Player.Runtime"],
+    "references": [
+        "Player.Runtime",
+        "AsteroidSysteme.Runtime"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,

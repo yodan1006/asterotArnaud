@@ -1,14 +1,24 @@
 using System;
 using UnityEngine;
+using AsteroidSysteme;
+using AsteroidSysteme.Runtime;
 
 namespace Laser.Runtime
 {
     public class LaserMove : MonoBehaviour
     {
+        #region Public
+        
+        
         public int m_speed;
-        public int m_damage = 10;
+        public int m_damage;
         public float m_timer;
         
+        
+        #endregion
+        
+        
+        #region API Unity
         void Start()
         {
             m_timer = 2.0f;
@@ -24,11 +34,20 @@ namespace Laser.Runtime
                 m_timer = 2.0f;
             }
         }
-
+        #endregion
+        
+        
+        #region Private and protected Methods
         private void OnTriggerEnter2D(Collider2D other)
         {
             print(other.gameObject.name);
-            //TODO Damage to give to astéroid With Interface ( other.GetComponent...) 
+            var damage = other.gameObject.GetComponent<IDamage>();
+            if (damage != null)
+            {
+                damage.Damage();
+            }
+            gameObject.SetActive(false);
         }
+        #endregion
     }
 }

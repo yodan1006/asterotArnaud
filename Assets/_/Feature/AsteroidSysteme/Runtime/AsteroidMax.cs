@@ -48,10 +48,7 @@ namespace AsteroidSysteme.Runtime
         {
             transform.Translate(m_direction * (Time.deltaTime * m_asteroidSpeed));
            CheckEnemyOutScreen();
-            if (_OnDestroyed)
-            {
-                DivideOnTwo();
-            }
+           
         }
 
         #endregion
@@ -64,6 +61,10 @@ namespace AsteroidSysteme.Runtime
                    gameObject.SetActive(false);
                    m_asteroidPool.ReturnToPool(gameObject);
                    _OnDestroyed = true;
+                   if (_OnDestroyed)
+                   {
+                       DivideOnTwo();
+                   }
                 }
 
         #endregion
@@ -95,6 +96,7 @@ namespace AsteroidSysteme.Runtime
                             asteroid.SetActive(true);
                         }
                     }
+                    _OnDestroyed = false;
                 }
 
         #endregion
