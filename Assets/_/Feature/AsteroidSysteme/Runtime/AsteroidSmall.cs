@@ -28,14 +28,14 @@ namespace AsteroidSysteme.Runtime
             {
                 m_cam = Camera.main;
             }
-
+            m_rb = GetComponent<Rigidbody2D>();
         }
 
 
         private void Start()
         {
             m_direction =  new Vector2(Random.Range(-5,5), Random.Range(-5,5));
-            m_rb = GetComponent<Rigidbody2D>();
+            
         }
 
         private void Update()

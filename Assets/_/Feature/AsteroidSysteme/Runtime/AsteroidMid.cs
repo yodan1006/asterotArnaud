@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -11,8 +12,8 @@ namespace AsteroidSysteme.Runtime
         public Vector2 m_direction;
         public PoolAsteroid m_asteroidPool;
         public PoolSmallMeteor m_smallAsteroidPool;
-        public Camera m_cam;
-        public Rigidbody2D m_rb;
+        public Camera m_cam; 
+        [NotNull] public Rigidbody2D m_rb;
 
         #endregion
 
@@ -35,13 +36,14 @@ namespace AsteroidSysteme.Runtime
                 m_cam = Camera.main;
             }
 
+            m_rb = GetComponent<Rigidbody2D>();
         }
 
 
         private void Start()
         {
             m_direction =  new Vector2(Random.Range(-5,5), Random.Range(-5,5));
-            m_rb = GetComponent<Rigidbody2D>();
+            
         }
 
         private void Update()
