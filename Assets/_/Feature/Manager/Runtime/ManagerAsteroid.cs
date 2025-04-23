@@ -7,6 +7,7 @@ namespace Manager.Runtime
     {
         #region Publics
 
+        public int m_numberSpawn;
         public PoolAsteroid m_poolAsteroid;
         public Camera m_cameraMain;
 
@@ -30,7 +31,10 @@ namespace Manager.Runtime
             _chrono += Time.deltaTime;
             if (_chrono >= _timeForSpawn)
             {
-                SpawnAsteroidFromPool();
+                for (int i = 0; i < m_numberSpawn; i++)
+                {
+                    SpawnAsteroidFromPool();
+                }
                 _chrono = 0;
             }
         }
