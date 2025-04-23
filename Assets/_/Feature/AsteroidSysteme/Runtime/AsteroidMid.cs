@@ -10,7 +10,7 @@ namespace AsteroidSysteme.Runtime
         public float m_asteroidSpeed = 1f;
         public Vector2 m_direction;
         public PoolAsteroid m_asteroidPool;
-        public PoolMidAsteroid m_smallAsteroidPool;
+        public PoolSmallMeteor m_smallAsteroidPool;
         public Camera m_cam;
         public Rigidbody2D m_rb;
 
@@ -27,7 +27,7 @@ namespace AsteroidSysteme.Runtime
             }
             if (m_smallAsteroidPool == null)
             {
-                m_smallAsteroidPool = FindFirstObjectByType<PoolMidAsteroid>();
+                m_smallAsteroidPool = FindFirstObjectByType<PoolSmallMeteor>();
             }
 
             if (m_cam == null)
