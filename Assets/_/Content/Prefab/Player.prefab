@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 488697895076450470}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.05, y: 0.52, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -244,9 +244,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f8b4ee7acf31b141a305cdde60441ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 0}
-  firePoint: {fileID: 0}
-  fireRate: 0.5
+  projectilePrefab: {fileID: 7148081617458432688, guid: 374afcaae8e449e4ab6072309a36de28, type: 3}
+  firePoint: {fileID: 2188966999674005043}
+  fireRate: 0.2
   poolSize: 20
 --- !u!1 &5190411936773396554
 GameObject:

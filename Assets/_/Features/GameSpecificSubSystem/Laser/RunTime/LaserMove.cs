@@ -9,7 +9,7 @@ namespace Laser.Runtime
         
         
         public int m_speed;
-        public int m_damage = 10;
+        public int m_damage;
         public float m_timer;
         
         
@@ -39,7 +39,8 @@ namespace Laser.Runtime
         private void OnTriggerEnter2D(Collider2D other)
         {
             print(other.gameObject.name);
-            //TODO Damage to give to astéroid With Interface ( other.GetComponent...) 
+            other.gameObject.SetActive(false);
+            
         }
         #endregion
     }
