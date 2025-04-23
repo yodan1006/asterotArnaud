@@ -73,8 +73,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -121695391
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 5098249006986496273, guid: e7f1a3be2d2ba384aa7567e9e1a95743, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -96,12 +96,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2162443471630642129}
-  - component: {fileID: -8604669546283540379}
   - component: {fileID: 7159369294815567604}
   - component: {fileID: -6856809362167717647}
-  m_Layer: 6
   - component: {fileID: -8726039596314209412}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: smallMeteor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -124,25 +122,6 @@ Transform:
   - {fileID: 6749597289230236734}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-8604669546283540379
---- !u!114 &-8726039596314209412
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3403939647384480634}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9fa35f48cdd09b64e8690cb9a1ff19ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_asteroidSpeed: 0.8
-  m_asteroidSpeed: 1
-  m_direction: {x: 0, y: 0}
-  m_smallAsteroidPool: {fileID: 0}
-  m_cam: {fileID: 0}
-  m_rb: {fileID: 0}
 --- !u!58 &7159369294815567604
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -206,3 +185,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-8726039596314209412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3403939647384480634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fa35f48cdd09b64e8690cb9a1ff19ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_asteroidSpeed: 0.8
+  m_direction: {x: 0, y: 0}
+  m_smallAsteroidPool: {fileID: 0}
+  m_cam: {fileID: 0}
+  m_rb: {fileID: 0}
