@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Manager.Runtime
 {
@@ -20,7 +21,10 @@ namespace Manager.Runtime
 
         private void Update()
         {
-            
+            if (m_life <= 0)
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            }
         }
 
         #endregion
