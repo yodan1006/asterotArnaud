@@ -1,21 +1,49 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Manager.Runtime;
+
 
 public class MovePlayer : MonoBehaviour
 {
+    #region Public
+    
+    
     public InputAction m_moveAction;
     public float m_vitesse = 5f;
     public Transform pointDeRepere; 
     
-    private float offsetRotation = -88f; 
-    private Vector2 moveInput;
+    #endregion
+    
+    
+    #region Private
 
+    [SerializeField] private GameManager _manager;
+    [SerializeField] private float knockbackForce = 2f;
+    [SerializeField] private float knockbackDuration = 0.1f;
+    
+    private float offsetRotation = -88f; 
+    private bool isKnockedBack = false;
+    private Vector2 moveInput;
+    private Rigidbody2D rb;
+    
+    #endregion
+    
+    
+    #region API Unity
+    
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
     void Update()
     {
         Move();
         LookMouse();
     }
-
+    #endregion
+    
+    
+    #region main
     public void Move()
     {
         if (moveInput.y > 0)
@@ -23,7 +51,6 @@ public class MovePlayer : MonoBehaviour
             transform.Translate(Vector3.up * (m_vitesse * Time.deltaTime));
         }
     }
-
     public void LookMouse()
     {
         if (pointDeRepere == null) return;
@@ -36,9 +63,28 @@ public class MovePlayer : MonoBehaviour
         
         transform.rotation = Quaternion.Euler(0, 0, angle + offsetRotation);
     }
-    
     public void Move(InputAction.CallbackContext context)
     {
         moveInput = context.ReadValue<Vector2>();
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        print("Trigger enter");
+        _manager.m_life -= 1;
+    }
+    
+    
+   
+    
+        
+
+      
+        
+         
+           
+        
+    
+
+    #endregion
 }

@@ -1,5 +1,7 @@
 using System;
 using UnityEngine;
+using AsteroidSysteme;
+using AsteroidSysteme.Runtime;
 
 namespace Laser.Runtime
 {
@@ -39,8 +41,12 @@ namespace Laser.Runtime
         private void OnTriggerEnter2D(Collider2D other)
         {
             print(other.gameObject.name);
-            other.gameObject.SetActive(false);
-            
+            var damage = other.gameObject.GetComponent<IDamage>();
+            if (damage != null)
+            {
+                damage.Damage();
+            }
+            gameObject.SetActive(false);
         }
         #endregion
     }
