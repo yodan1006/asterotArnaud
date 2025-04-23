@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using AsteroidSysteme;
 using AsteroidSysteme.Runtime;
+using Manager.Runtime;
 
 namespace Laser.Runtime
 {
@@ -9,13 +10,15 @@ namespace Laser.Runtime
     {
         #region Public
         
-        
         public int m_speed;
         public int m_damage;
         public float m_timer;
+        private int m_score = 0;
+      
         
         
         #endregion
+        
         
         
         #region API Unity
@@ -44,7 +47,10 @@ namespace Laser.Runtime
             var damage = other.gameObject.GetComponent<IDamage>();
             if (damage != null)
             {
+                m_score++;
+                print(m_score);
                 damage.Damage();
+                ScoreManager.UpdateScore();
             }
             gameObject.SetActive(false);
         }

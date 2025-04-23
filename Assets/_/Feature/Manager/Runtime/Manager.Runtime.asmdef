@@ -2,7 +2,8 @@
     "name": "Manager.Runtime",
     "rootNamespace": "Manager.Runtime",
     "references": [
-        "GUID:1525a90eec82c4d46a163dbc29bbcaa5"
+        "GUID:1525a90eec82c4d46a163dbc29bbcaa5",
+        "GUID:6055be8ebefd69e48b49212b09b47b2f"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

@@ -3,7 +3,8 @@
     "rootNamespace": "Laser.Runtime",
     "references": [
         "Player.Runtime",
-        "AsteroidSysteme.Runtime"
+        "AsteroidSysteme.Runtime",
+        "Manager.Runtime"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
