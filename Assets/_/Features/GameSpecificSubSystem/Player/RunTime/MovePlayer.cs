@@ -5,9 +5,9 @@ public class MovePlayer : MonoBehaviour
 {
     public InputAction m_moveAction;
     public float m_vitesse = 5f;
-    public Transform pointDeRepere; // Le point de repère qui regarde la souris
+    public Transform pointDeRepere; 
     
-    private float offsetRotation = -88f; // Permet d'ajuster l'orientation via l'Inspectorzz
+    private float offsetRotation = -88f; 
     private Vector2 moveInput;
 
     void Update()
@@ -36,6 +36,7 @@ public class MovePlayer : MonoBehaviour
         
         transform.rotation = Quaternion.Euler(0, 0, angle + offsetRotation);
     }
+    
     public void Move(InputAction.CallbackContext context)
     {
         moveInput = context.ReadValue<Vector2>();

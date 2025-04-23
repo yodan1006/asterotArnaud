@@ -6,7 +6,7 @@ namespace Laser.Runtime
     public class LaserMove : MonoBehaviour
     {
         public int m_speed;
-        public int m_damage;
+        public int m_damage = 10;
         public float m_timer;
         
         void Start()
