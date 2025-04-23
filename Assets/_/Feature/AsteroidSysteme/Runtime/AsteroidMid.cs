@@ -3,7 +3,7 @@ using UnityEngine.Serialization;
 
 namespace AsteroidSysteme.Runtime
 {
-    public class AsteroidMid : MonoBehaviour
+    public class AsteroidMid : MonoBehaviour, IDamage
     {
        #region Publics
 
